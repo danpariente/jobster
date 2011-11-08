@@ -1,11 +1,21 @@
 Jobster::Application.routes.draw do
   
-  resources :friendships, :memberships, :comments, :likes, :requests
+  resources :friendships, :memberships, :comments, :likes, :requests, :profiles, :preferences
   
   resources :posts, :only => [:create, :destroy] do 
   	resources :comments
   	resources :likes
   end 
+  
+  resource :profile do 
+  	resources :abouts
+  	resource :preference
+  	resources :educations
+  	resources :experiences
+  	resources :competencies
+  	resources :languages
+  	resources :references
+  end
   	
   get "home/show"
   
@@ -25,7 +35,7 @@ Jobster::Application.routes.draw do
   end
   
   resources :users do
-  	get :profile, :on => :collection  
+  	#get :profile, :on => :collection  
   	get :change_profile, :on => :collection 
   	resources :pages
   end
@@ -77,6 +87,7 @@ Jobster::Application.routes.draw do
   
   match 'request/:user_id' => "requests#send_request"                                              
   match 'requests/pending' => "requests#pending"
+  match 'profiles/:id/preference/new' => "preferences#new"
             
   root :to => "home#show"            
 

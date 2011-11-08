@@ -12,25 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20111104233024) do
 
-  create_table "abouts", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.date     "date_birth"
-    t.string   "gender"
-    t.string   "marital_status"
-    t.string   "current_drawn"
-    t.string   "availability"
-    t.string   "mobile_number"
-    t.string   "home_number"
-    t.string   "work_number"
-    t.string   "education_level"
-    t.text     "skills"
-    t.string   "image"
-    t.integer  "profile_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
     t.string   "resource_type", :null => false
@@ -327,6 +308,19 @@ ActiveRecord::Schema.define(:version => 20111104233024) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "date_birth"
+    t.string   "gender"
+    t.string   "marital_status"
+    t.string   "current_drawn"
+    t.string   "availability"
+    t.string   "mobile_number"
+    t.string   "home_number"
+    t.string   "work_number"
+    t.string   "education_level"
+    t.text     "skills"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
